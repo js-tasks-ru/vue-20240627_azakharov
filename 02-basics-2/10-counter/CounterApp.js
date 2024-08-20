@@ -18,7 +18,7 @@ export default defineComponent({
         type="button"
         aria-label="Decrement"
         :disabled="counter <= 0"
-        @click="() => counter--"
+        @click="counter--"
       >➖</button>
 
       <span class="count" data-testid="count"> {{ counter }}</span>
@@ -28,7 +28,7 @@ export default defineComponent({
         type="button"
         aria-label="Increment"
         :disabled="counter >= 5"
-        @click="() => counter++"
+        @click="counter++"
       >➕</button>
     </div>
   `,
