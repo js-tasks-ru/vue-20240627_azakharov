@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref, onMounted } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 
 // Значения взяты из https://jsonplaceholder.typicode.com/comments
 export const emails = [
@@ -33,15 +33,18 @@ export default defineComponent({
   name: 'MarkedEmailsApp',
 
   setup() {
-    const emailItems = ref(emails)
     const inputedText = ref(null)
 
     const markedEmails = computed(() => {
-      return emailItems.value.filter(email => !!inputedText.value && email.includes(inputedText.value)) || []
+      return emails.map((email) => { 
+        return {
+          "email": email,
+          "marked": !!inputedText.value && email.includes(inputedText.value) ? "marked": ""
+        }
+      }) || []
     })
 
     return {
-      emailItems,
       inputedText,
       markedEmails,
     }
@@ -54,8 +57,8 @@ export default defineComponent({
         <input type="search" aria-label="Search" v-model="inputedText"/>
       </div>
       <ul aria-label="Emails">
-        <li v-for="item in emailItems" :class="{'marked': markedEmails.includes(item)}">
-          {{ item }}
+        <li v-for="item in markedEmails" :class="item.marked">
+          {{ item.email }}
         </li>
       </ul>
     </div>
