@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue'
-import { getWeatherData, WeatherConditionIcons } from './weather.service.ts'
 import './WeatherApp.css'
 
 export default defineComponent({
