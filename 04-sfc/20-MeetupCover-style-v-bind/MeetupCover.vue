@@ -11,7 +11,7 @@ const props = defineProps({
   },
 })
 
-const bgStyle = computed(() => (props.image ? `url('${props.image}')` : undefined))
+const bgStyle = computed(() => (props.image ? `url('${props.image}')` : 'var(--default-cover)'))
 </script>
 
 <template>
