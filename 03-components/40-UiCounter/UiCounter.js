@@ -14,10 +14,12 @@ export default defineComponent({
       type: Number,
       required: true
     },
+
     min: {
       type: Number,
       default: 0
     },
+    
     max: {
       type: Number,
       default: Infinity
